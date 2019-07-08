@@ -58,7 +58,6 @@ public class RandomStudentProgressGenerator implements EntityGenerator<StudentPr
     }
 
     /**
-     *
      * @param lowBound
      * @return mark between low bound and 5 inclusive
      */
@@ -66,7 +65,7 @@ public class RandomStudentProgressGenerator implements EntityGenerator<StudentPr
 
         while (true) {
             int mark = random.nextInt(6);
-            if (mark>=lowBound) {
+            if (mark >= lowBound) {
                 return mark;
             }
         }

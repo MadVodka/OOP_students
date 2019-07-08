@@ -9,7 +9,7 @@ public class NameGenerator {
     private Random random = new Random();
 
     public String generateFirstName(Gender gender) {
-        if (gender==Gender.FEMALE) {
+        if (gender == Gender.FEMALE) {
             return NameHolder.femaleFirstName[random.nextInt(NameHolder.femaleFirstName.length)];
         } else {
             return NameHolder.maleFirstName[random.nextInt(NameHolder.maleFirstName.length)];
