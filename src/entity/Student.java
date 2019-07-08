@@ -5,6 +5,7 @@ public class Student {
     private String firstName;
     private String secondName;
     private Gender gender;
+
     private StudentProgress studentProgress;
 
     public Student(String firstName, String secondName, Gender gender, StudentProgress studentProgress) {
@@ -32,5 +33,15 @@ public class Student {
 
     public StudentProgress getStudentProgress() {
         return studentProgress;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", gender=" + gender +
+                ", studentProgress=" + studentProgress +
+                '}';
     }
 }

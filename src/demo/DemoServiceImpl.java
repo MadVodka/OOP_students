@@ -27,13 +27,18 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public void start() {
+        System.out.println("------ Demo start ------");
         createGroup();
         showAverageGroupMark();
+        showAverageStudentMark();
+        showAmountExcellentStudents();
+        showAmountUnsuccessfulStudents();
+        System.out.println("------ Demo end ------");
     }
 
     private void createGroup() {
         System.out.println("Generating a group...");
-        Student[] students = new Student[15];
+        Student[] students = new Student[15]; // for example 15 students
         for (int i = 0; i < students.length; i++) {
             students[i] = randomStudentGenerator.generate();
         }
@@ -41,7 +46,30 @@ public class DemoServiceImpl implements DemoService {
     }
 
     private void showAverageGroupMark() {
-        double averageMark = groupService.averageGroupMark(group);
+        double averageMark = groupService.averageGroupMark(group, studentMarksService);
         System.out.println("Average mark of group #" + group + " is " + averageMark);
+        System.out.println();
+    }
+
+    private void showAverageStudentMark() {
+        System.out.println("------ Average students' mark ------");
+        for (Student student : group.getStudents()) {
+            StudentProgress studentProgress = student.getStudentProgress();
+            System.out.println(student.getFirstName() + " " + student.getSecondName() + " - "
+                    + studentMarksService.averageStudentMark(studentProgress));
+        }
+        System.out.println();
+    }
+
+    private void showAmountExcellentStudents() {
+        int amount = groupService.amountStudentsWithAllExcellentMarks(group, studentMarksService);
+        System.out.println("Amount of excellent students is " + amount);
+        System.out.println();
+    }
+
+    private void showAmountUnsuccessfulStudents() {
+        int amount = groupService.amountStudentsHavingUnsuccessfulMarks(group, studentMarksService);
+        System.out.println("Amount of unsuccessful students is " + amount);
+        System.out.println();
     }
 }

@@ -4,7 +4,6 @@ import entity.Student;
 import repository.Group;
 
 public class GroupServiceImpl implements GroupService {
-    private StudentMarksService studentMarksService = new StudentMarksServiceImpl();
 
     @Override
     public int groupSize(Group group) {
@@ -12,7 +11,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public double averageGroupMark(Group group) {
+    public double averageGroupMark(Group group, StudentMarksService studentMarksService) {
         Student[] students = group.getStudents();
         double sumOfGroupMarks = 0;
         for (Student student : students) {
@@ -22,7 +21,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public int amountStudentsWithAllExcellentMarks(Group group) {
+    public int amountStudentsWithAllExcellentMarks(Group group, StudentMarksService studentMarksService) {
         Student[] students = group.getStudents();
         int count = 0;
         for (Student student : students) {
@@ -34,7 +33,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public int amountStudentsHavingUnsuccessfulMarks(Group group) {
+    public int amountStudentsHavingUnsuccessfulMarks(Group group, StudentMarksService studentMarksService) {
         Student[] students = group.getStudents();
         int count = 0;
         for (Student student : students) {

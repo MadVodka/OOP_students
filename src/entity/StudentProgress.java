@@ -72,4 +72,16 @@ public class StudentProgress {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "StudentProgress{" +
+                "physicsMark=" + physicsMark +
+                ", mathematicsMark=" + mathematicsMark +
+                ", chemistryMark=" + chemistryMark +
+                ", biologyMark=" + biologyMark +
+                ", psychologyMark=" + psychologyMark +
+                ", economicsMark=" + economicsMark +
+                ", artMark=" + artMark +
+                '}';
+    }
 }
