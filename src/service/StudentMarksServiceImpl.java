@@ -5,7 +5,7 @@ import entity.StudentProgress;
 public class StudentMarksServiceImpl implements StudentMarksService {
     @Override
     public double averageStudentMark(StudentProgress studentProgress) {
-        int sumOfMarks = 0;
+        double sumOfMarks = 0;
         sumOfMarks += studentProgress.getArtMark();
         sumOfMarks += studentProgress.getBiologyMark();
         sumOfMarks += studentProgress.getChemistryMark();

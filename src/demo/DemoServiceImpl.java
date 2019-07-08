@@ -28,11 +28,15 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public void start() {
         System.out.println("------ Demo start ------");
+        System.out.println();
+
         createGroup();
+        showFullStudentsInfo();
         showAverageGroupMark();
         showAverageStudentMark();
         showAmountExcellentStudents();
         showAmountUnsuccessfulStudents();
+
         System.out.println("------ Demo end ------");
     }
 
@@ -43,11 +47,13 @@ public class DemoServiceImpl implements DemoService {
             students[i] = randomStudentGenerator.generate();
         }
         group = new Group(students);
+        System.out.println();
     }
 
     private void showAverageGroupMark() {
         double averageMark = groupService.averageGroupMark(group, studentMarksService);
-        System.out.println("Average mark of group #" + group + " is " + averageMark);
+        System.out.println("Average mark of group #" + group + " is "
+                + String.format("%.2f", averageMark));
         System.out.println();
     }
 
@@ -56,7 +62,7 @@ public class DemoServiceImpl implements DemoService {
         for (Student student : group.getStudents()) {
             StudentProgress studentProgress = student.getStudentProgress();
             System.out.println(student.getFirstName() + " " + student.getSecondName() + " - "
-                    + studentMarksService.averageStudentMark(studentProgress));
+                    + String.format("%.2f", studentMarksService.averageStudentMark(studentProgress)));
         }
         System.out.println();
     }
@@ -69,7 +75,16 @@ public class DemoServiceImpl implements DemoService {
 
     private void showAmountUnsuccessfulStudents() {
         int amount = groupService.amountStudentsHavingUnsuccessfulMarks(group, studentMarksService);
-        System.out.println("Amount of unsuccessful students is " + amount);
+        System.out.println("Amount of students having at least one unsuccessful mark is " + amount);
+        System.out.println();
+    }
+
+    private void showFullStudentsInfo() {
+        System.out.println("------ All students ------");
+        for (int i = 0; i < groupService.groupSize(group); i++) {
+            Student student = group.getStudents()[i];
+            System.out.println(i + ". " + student);
+        }
         System.out.println();
     }
 }

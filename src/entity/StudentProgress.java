@@ -74,14 +74,12 @@ public class StudentProgress {
 
     @Override
     public String toString() {
-        return "StudentProgress{" +
-                "physicsMark=" + physicsMark +
-                ", mathematicsMark=" + mathematicsMark +
-                ", chemistryMark=" + chemistryMark +
-                ", biologyMark=" + biologyMark +
-                ", psychologyMark=" + psychologyMark +
-                ", economicsMark=" + economicsMark +
-                ", artMark=" + artMark +
-                '}';
+        return "physicsMark=" + physicsMark + "\n" +
+                "mathematicsMark=" + mathematicsMark + "\n" +
+                "chemistryMark=" + chemistryMark + "\n" +
+                "biologyMark=" + biologyMark + "\n" +
+                "psychologyMark=" + psychologyMark + "\n" +
+                "economicsMark=" + economicsMark + "\n" +
+                "artMark=" + artMark + "\n";
     }
 }
