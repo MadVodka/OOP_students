@@ -53,8 +53,6 @@ public class RandomStudentProgressGenerator implements EntityGenerator<StudentPr
                         .setPhysicsMark(generateMark(3))
                         .setPsychologyMark(generateMark(3));
         }
-
-
     }
 
     /**
@@ -62,13 +60,11 @@ public class RandomStudentProgressGenerator implements EntityGenerator<StudentPr
      * @return mark between low bound and 5 inclusive
      */
     private int generateMark(int lowBound) {
-
         while (true) {
             int mark = random.nextInt(6);
             if (mark >= lowBound) {
                 return mark;
             }
         }
-
     }
 }

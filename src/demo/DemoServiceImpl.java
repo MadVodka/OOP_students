@@ -27,7 +27,7 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public void start() {
-        System.out.println("------ Demo start ------");
+        System.out.println("------ Demo \"students\" start ------");
         System.out.println();
 
         createGroup();
@@ -37,7 +37,7 @@ public class DemoServiceImpl implements DemoService {
         showAmountExcellentStudents();
         showAmountUnsuccessfulStudents();
 
-        System.out.println("------ Demo end ------");
+        System.out.println("------ Demo \"students\" end ------");
     }
 
     private void createGroup() {
